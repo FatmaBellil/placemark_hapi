@@ -1,0 +1,43 @@
+{
+  "name": "placemark_hapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "_comment": "allow to use import and export statements",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js ",
+    "dev": "./node_modules/.bin/nodemon src/server.js  --ignore 'src/models/json/*.json'",
+    "lint": "./node_modules/.bin/eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FatmaBellil/placemark_hapi.git"
+  },
+  "author": "Fatma Zahraa Bellil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FatmaBellil/placemark_hapi/issues"
+  },
+  "homepage": "https://github.com/FatmaBellil/placemark_hapi#readme",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.3.2",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/vision": "^7.0.1",
+    "dotenv": "^16.1.4",
+    "handlebars": "^4.7.7",
+    "mais-mongoose-seeder": "^1.0.7",
+    "mongoose": "^7.2.2",
+    "uuid": "^9.0.0"
+  }
+}
