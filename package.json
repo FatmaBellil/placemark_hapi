@@ -8,6 +8,9 @@
   "scripts": {
     "start": "node src/server.js ",
     "dev": "./node_modules/.bin/nodemon src/server.js  --ignore 'src/models/json/*.json'",
+    "test": "./node_modules/mocha/bin/_mocha --timeout 10000 --ui tdd test/**/*.js -exit",
+    "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
+    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit",
     "lint": "./node_modules/.bin/eslint . --ext .js"
   },
   "repository": {
@@ -21,10 +24,12 @@
   },
   "homepage": "https://github.com/FatmaBellil/placemark_hapi#readme",
   "devDependencies": {
+    "chai": "^4.3.7",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8"
   },

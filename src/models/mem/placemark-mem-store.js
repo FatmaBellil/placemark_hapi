@@ -12,7 +12,7 @@ export const placemarkMemStore = {
         placemarks.push(placemark);
         return placemark;
     },
-
+    
     async getPlacemarkById(id) {
         const placemark = placemarks.find((item) => item._id === id);
         if (placemark === undefined) {
@@ -26,7 +26,7 @@ export const placemarkMemStore = {
     },
 
     async deletePlacemarkById(id) {
-        const index = placemarks.find((placemark) => placemark._id === id);
+        const index = placemarks.findIndex((placemark) => placemark._id === id);
         if (index !== -1) placemarks.splice(index, 1);
     },
 
