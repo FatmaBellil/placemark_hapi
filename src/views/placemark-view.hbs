@@ -1,11 +1,22 @@
 {{> menu }}
 
-<section class="section">
-    <div class="title">
-      {{placemark.name}}
+<form class="box"  action="/updateplacemark/{{placemark._id}}" method="POST">
+  <h1 class="title" >Update placemark :</h1>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" name="name", value="{{placemark.name}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text" name="description" value="{{placemark.description}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="latitude" value="{{placemark.latitude}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="longitude" value="{{placemark.longitude}}">
+      </div>
     </div>
-        <p>Latitude: {{placemark.latitude}}</p>
-        <p>Longitude: {{placemark.longitude}}</p>
-        <p>Description: {{placemark.description}}</p>
-    </div>
-</section>
+  </div>
+  <button class="button is-primary">Update placemark</button>
+</form>

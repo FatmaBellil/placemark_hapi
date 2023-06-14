@@ -35,6 +35,14 @@ export const userMemStore = {
     if (index !== -1) users.splice(index, 1);
   },
 
+  async updateUser(user, newUser) {
+    user.firstName = newUser.firstName;
+    user.lasrName = newUser.lastName;
+    user.email = newUser.email;
+    user.password = newUser.password;
+
+  },
+
   async deleteAll() {
     users = [];
   },

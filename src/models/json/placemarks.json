@@ -1,0 +1,28 @@
+{
+  "placemarks": [
+    {
+      "userid": "6aac5eec-3b53-42db-b551-cf472ecabb12",
+      "name": "regensburg",
+      "latitude": 33.44,
+      "longitude": 10.3808333333,
+      "description": "description",
+      "_id": "2ee5b5e2-a7d4-4964-adf5-ceaa05017b85"
+    },
+    {
+      "userid": "6aac5eec-3b53-42db-b551-cf472ecabb12",
+      "name": "münchen",
+      "latitude": 48.13743,
+      "longitude": 11.576124,
+      "description": "description",
+      "_id": "a1c3915a-7dd6-452a-8e6c-9e129b206b1d"
+    },
+    {
+      "userid": "6aac5eec-3b53-42db-b551-cf472ecabb12",
+      "name": "place3",
+      "latitude": 36.1352777778,
+      "longitude": 12.09,
+      "description": "description",
+      "_id": "b053d395-1c44-4388-a1cb-4af3f0a6a0ce"
+    }
+  ]
+}

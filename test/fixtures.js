@@ -4,7 +4,8 @@ export const maggie = {
     firstName: "Maggie",
     lastName: "Simpson",
     email: "maggie@simpson.com",
-    password: "secret"
+    password: "secret",
+    role: "basic"
 };
 
 export const testUsers = [
@@ -12,19 +13,22 @@ export const testUsers = [
       firstName: "Homer",
       lastName: "Simpson",
       email: "homer@simpson.com",
-      password: "secret"
+      password: "secret",
+      role: "basic"
     },
     {
       firstName: "Marge",
       lastName: "Simpson",
       email: "marge@simpson.com",
-      password: "secret"
+      password: "secret",
+      role: "basic"
     },
     {
       firstName: "Bart",
       lastName: "Simpson",
       email: "bart@simpson.com",
-      password: "secret"
+      password: "secret",
+      role: "basic"
     }
   ];
 
@@ -32,29 +36,32 @@ export const testUsers = [
     firstName: "Jerry",
     lastName: "Minet",
     email: "jerry@admin.com",
-    password: "secret"
+    password: "secret",
+    role: "admin"
   }
 
-  export const testAdmins = [
-      {
-        firstName: "Erich",
-        lastName: "Beavers",
-        email: "erich@admin.com",
-        password: "secret"
-      },
+  // export const testAdmins = [
+  //     {
+  //       firstName: "Erich",
+  //       lastName: "Beavers",
+  //       email: "erich@admin.com",
+  //       password: "secret",
+  //       role: "admin"
+  //     },
 
-      {
-        firstName: "Kevin",
-        lastName: "Staniforth",
-        email: "kevin@admin.com",
-        password: "secret"
-      }
-  ]
+  //     {
+  //       firstName: "Kevin",
+  //       lastName: "Staniforth",
+  //       email: "kevin@admin.com",
+  //       password: "secret",
+  //       role: "admin"
+  //     }
+  // ]
 
   export const regensburg = {
     name: "Regensburg",
-    atitude:"-7.7218793",
-    longitude:"113.4785837",
+    atitude:"49.0139",
+    longitude:"12.1016",
     description:"Regensburg is a german city"
 
   }

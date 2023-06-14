@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "firstName": "bart",
+      "lastName": "simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "role": "basic",
+      "_id": "6aac5eec-3b53-42db-b551-cf472ecabb12"
+    },
+    {
+      "firstName": "Fatma Zahraa",
+      "lastName": "Bellil",
+      "email": "bellil.fa234@gmail.com",
+      "password": "1",
+      "role": "admin",
+      "_id": "d835cd42-02dc-4837-8e22-758ec18cc315"
+    },
+    {
+      "firstName": "mohamed",
+      "lastName": "Bellil",
+      "email": "bellil.am234@gmail.com",
+      "password": "1",
+      "role": "basic",
+      "_id": "423b6b99-c023-4daf-81dc-06170590f8b6",
+      "lasrName": "Bellil"
+    }
+  ]
+}

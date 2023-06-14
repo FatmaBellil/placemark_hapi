@@ -1,4 +1,7 @@
+/* eslint-disable no-else-return */
 import { db } from "../models/db.js";
+import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+
 
 export const accountsController = {
   index: {
@@ -7,28 +10,50 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to Placemark" });
     },
   },
+
+
   showSignup: {
     auth: false,
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up for Placemark" });
     },
   },
+
+
   signup: {
     auth: false,
+    validate: {
+      payload: UserSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("signup-view", { title: "Sign up error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const user = request.payload;
+      user.role = "basic";
       await db.userStore.addUser(user);
       return h.redirect("/");
     },
   },
+
+
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login-view", { title: "Login to Placemark" });
     },
   },
+  
   login: {
     auth: false,
+    validate: {
+      payload: UserCredentialsSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("login-view", { title: "Log in error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
@@ -36,12 +61,20 @@ export const accountsController = {
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
-      return h.redirect("/dashboard");
+      if (user.role === "basic") {
+        return h.redirect("/dashboard");
+      }
+      else {
+        return h.redirect("/admindashboard");
+      }
     },
   },
+
+
   logout: {
     auth: false,
     handler: function (request, h) {
+      request.cookieAuth.clear();
       return h.redirect("/");
     },
   },

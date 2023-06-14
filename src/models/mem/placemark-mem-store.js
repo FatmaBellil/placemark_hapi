@@ -30,6 +30,13 @@ export const placemarkMemStore = {
         if (index !== -1) placemarks.splice(index, 1);
     },
 
+    async updatePlacemark(placemark, newPlacemark) {
+        placemark.name = newPlacemark.name;
+        placemark.description = newPlacemark.description;
+        placemark.latitude = newPlacemark.latitude;
+        placemark.longitude = newPlacemark.longitude;
+    },
+
     async deleteAllPlacemarks() {
         placemarks = [];
     },
