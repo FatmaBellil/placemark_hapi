@@ -1,4 +1,3 @@
-import { handler } from "@hapi/vision/lib/schemas.js";
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 
@@ -46,3 +45,5 @@ export const placemarkController = {
 
     }
 }
+
+// upload and delete image

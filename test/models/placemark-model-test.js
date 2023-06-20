@@ -1,21 +1,24 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testPlacemarks, regensburg } from "../fixtures.js";
+import { testPlacemarks, regensburg, landscape } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
 suite("Placemark Model tests", () => {
+  let landscapeList = null;
 
   setup(async () => {
-    db.init();
+    db.init("mongo");
+    await db.categoryStore.deleteAllCategories();
     await db.placemarkStore.deleteAllPlacemarks();
+    landscapeList = await db.categoryStore.addCategory(landscape);
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testPlacemarks[i] = await db.placemarkStore.addPlacemark(testPlacemarks[i]);
+      testPlacemarks[i] = await db.placemarkStore.addPlacemark(landscapeList._id,testPlacemarks[i]);
     }
   });
 
   test("create a placemark", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(regensburg);
+    const placemark = await db.placemarkStore.addPlacemark(landscapeList._id, regensburg);
     assertSubset(regensburg, placemark);
     assert.isDefined(placemark._id);
   });
@@ -29,7 +32,7 @@ suite("Placemark Model tests", () => {
   });
 
   test("get a Placemark - success", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(regensburg);
+    const placemark = await db.placemarkStore.addPlacemark(landscapeList._id, regensburg);
     const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark._id);
     assertSubset(regensburg, returnedPlacemark);
   });

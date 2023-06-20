@@ -1,5 +1,5 @@
-<h1 class="title" >Placemarks: </h1>
-{{#each category.placemarks}}
+<h1 class="title" >All Placemarks: </h1>
+{{#each placemarks}}
   <div class="box box-link-hover-shadow">
     <h2 class="title">
       {{name}}
@@ -8,9 +8,6 @@
       <span class="icon is-small">
         <i class="fas fa-folder-open"></i>
       </span>
-    </a>
-    <a href="/category/{{../category._id}}/deleteplacemark/{{_id}}" class="button">
-      <i class="fas fa-trash"></i>
     </a>
   </div>
 {{/each}}

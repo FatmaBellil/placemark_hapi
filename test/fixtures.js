@@ -40,23 +40,24 @@ export const testUsers = [
     role: "admin"
   }
 
-  // export const testAdmins = [
-  //     {
-  //       firstName: "Erich",
-  //       lastName: "Beavers",
-  //       email: "erich@admin.com",
-  //       password: "secret",
-  //       role: "admin"
-  //     },
 
-  //     {
-  //       firstName: "Kevin",
-  //       lastName: "Staniforth",
-  //       email: "kevin@admin.com",
-  //       password: "secret",
-  //       role: "admin"
-  //     }
-  // ]
+  export const landscape = {
+    name: "landscape"
+  }
+
+  export const testCategories = [
+    {
+      name: "island"
+    },
+
+    {
+      name: "city"
+    },
+    
+    {
+      name: "town"
+    }
+  ]
 
   export const regensburg = {
     name: "Regensburg",

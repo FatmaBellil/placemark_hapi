@@ -24,6 +24,14 @@
       "role": "basic",
       "_id": "423b6b99-c023-4daf-81dc-06170590f8b6",
       "lasrName": "Bellil"
+    },
+    {
+      "firstName": "maggie",
+      "lastName": "simpson",
+      "email": "maggie@simpson.com",
+      "password": "secret",
+      "role": "basic",
+      "_id": "666da43a-aa36-4f5f-abcc-1891e69dd226"
     }
   ]
 }

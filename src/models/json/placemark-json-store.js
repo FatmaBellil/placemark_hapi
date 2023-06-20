@@ -13,9 +13,10 @@ export const placemarkJsonStore = {
         return db.data.placemarks;
     },
 
-    async addPlacemark(placemark) {
+    async addPlacemark(categoryid,placemark) {
         await db.read();
         placemark._id = v4();
+        placemark.categoryid = categoryid;
         db.data.placemarks.push(placemark);
         await db.write();
         return placemark;
@@ -27,11 +28,12 @@ export const placemarkJsonStore = {
         if (placemark === undefined) placemark = null;
         return placemark;
     },
-
-    async getUserPlacemarks(userid) {
+    async getCategoryPlacemarks(categoryid) {
         await db.read();
-        return db.data.placemarks.filter((placemark) => placemark.userid === userid);
+        return db.data.placemarks.filter((placemark) => placemark.categoryid === categoryid);
     },
+
+  
 
     async deletePlacemarkById(id) {
         await db.read();

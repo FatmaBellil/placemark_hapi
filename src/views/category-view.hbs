@@ -1,47 +1,7 @@
-{{> menu active="categories"}}
 
-<h1 class="title" >Categories: </h1>
-{{#each categories}}
-  <div class="box box-link-hover-shadow">
-    <h2 class="title">
-      {{name}}
-    </h2>
-    <a href="/categories/deletecategory/{{_id}}" class="button">
-      <i class="fas fa-trash"></i>
-    </a>
-    <table class="table is-fullwidth">
-        <thead>
-            <tr>
-                <th>Placemark</th>
-                <th>description</th>
-                <th>latitude</th>
-                <th>longitude</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each placemarks}}  
-                <tr>
-                    <td>
-                        {{name}}
-                    </td>
-                    <td>
-                        {{description}}
-                    </td>
-                    <td>
-                        {{latitude}}
-                    </td>
-                    <td>
-                        {{longitude}}
-                    </td>
-                    <td>
-                        <a href="/categories/deleteplacemark/{{_id}}" class="ui icon button">
-                            <i class="fas fa-trash">delete from category</i>
-                        </a>
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
-  </div>
-{{/each}}
+{{> menu active="dashboard"}}
+
+<section class="section">
+  {{> list-placemarks}}
+  {{> add-placemark}}
+</section>

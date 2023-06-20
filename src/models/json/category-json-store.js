@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { Low } from "lowdb";
 import { JSONFile } from "lowdb/node";
+import { placemarkJsonStore } from "./placemark-json-store.js";
 
 
 const db = new Low(new JSONFile("./src/models/json/categories.json"), { categories: [] });
@@ -28,7 +29,11 @@ export const categoryJsonStore = {
     async getCategoryById(id) {
         await db.read();
         let category = db.data.categories.find((item) => item._id === id);
-        if (category === undefined) category = null;
+        if (category) {
+            category.placemarks = await placemarkJsonStore.getCategoryPlacemarks(id);
+        } else {
+            category = null;
+        }
         return category;
     },
 
