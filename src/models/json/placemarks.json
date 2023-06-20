@@ -1,12 +1,28 @@
 {
   "placemarks": [
     {
-      "name": "place2",
-      "latitude": 33.44,
-      "longitude": 10.3808333333,
-      "description": "description",
-      "_id": "49329656-291e-4d7f-b3db-be7de074eec9",
-      "categoryid": "052faa5b-a9ca-4c7f-9c2c-73c737cff724"
+      "name": "Shawnee Mission",
+      "latitude": "39.0277832",
+      "longitude": "-94.6557914",
+      "description": "Aliquam sit amet diam",
+      "_id": "8ee02aad-121c-4d49-ac3a-bf83dc208056",
+      "categoryid": "4309a11b-9422-4118-899d-3538e9d40314"
+    },
+    {
+      "name": "Xiaomian",
+      "latitude": "39.937881",
+      "longitude": "116.4080926",
+      "description": "Etiam pretium iaculis justo",
+      "_id": "10f41770-40be-4ef7-ad5b-c45930140d82",
+      "categoryid": "4309a11b-9422-4118-899d-3538e9d40314"
+    },
+    {
+      "name": "Jajarkrajan",
+      "latitude": "-8.1539",
+      "longitude": "111.7051",
+      "description": "Nulla justo",
+      "_id": "a5113006-14eb-40e5-84b5-682edb0123ba",
+      "categoryid": "4309a11b-9422-4118-899d-3538e9d40314"
     }
   ]
 }

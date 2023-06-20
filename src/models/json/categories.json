@@ -1,27 +1,8 @@
 {
   "categories": [
     {
-      "name": "category1"
-    },
-    {
-      "userid": "6aac5eec-3b53-42db-b551-cf472ecabb12",
-      "name": "category 1",
-      "_id": "0eb109f9-04d2-4757-897a-cb8d6a58b1e5"
-    },
-    {
-      "userid": "6aac5eec-3b53-42db-b551-cf472ecabb12",
-      "name": "category 2",
-      "_id": "52e1144c-3210-48e8-a8d9-052a04d5f5c5"
-    },
-    {
-      "userid": "666da43a-aa36-4f5f-abcc-1891e69dd226",
-      "name": "new category",
-      "_id": "052faa5b-a9ca-4c7f-9c2c-73c737cff724"
-    },
-    {
-      "userid": "666da43a-aa36-4f5f-abcc-1891e69dd226",
-      "name": "category 1",
-      "_id": "aa166062-6770-4943-aac4-36af9e7ae0b0"
+      "name": "landscape",
+      "_id": "4309a11b-9422-4118-899d-3538e9d40314"
     }
   ]
 }
