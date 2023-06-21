@@ -23,6 +23,14 @@
       "description": "Nulla justo",
       "_id": "a5113006-14eb-40e5-84b5-682edb0123ba",
       "categoryid": "4309a11b-9422-4118-899d-3538e9d40314"
+    },
+    {
+      "name": "place1",
+      "latitude": 36.1352777778,
+      "longitude": 10.3808333333,
+      "description": "description",
+      "_id": "705a7eae-8b1a-41b4-b7be-7c14351c15c0",
+      "categoryid": "cb0cf8bb-718f-422d-891d-eb3a63e056b8"
     }
   ]
 }

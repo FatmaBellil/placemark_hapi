@@ -1,13 +1,17 @@
 import { assert } from "chai";
+import { EventEmitter } from "events";
 import { db } from "../../src/models/db.js";
 import { landscape, testCategories } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
 
+EventEmitter.setMaxListeners(25);
+
+
 suite("Category Model tests", () => {
 
     setup(async () => {
-        db.init("json");
+        db.init("mongo");
         await db.categoryStore.deleteAllCategories();
         for (let i = 0; i < testCategories.length; i+=1) {
             // eslint-disable-next-line no-await-in-loop

@@ -20,6 +20,7 @@ export const UserSpec = UserCredentialsSpec.keys({
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
+  role: Joi.string.example("basic").optional(),
   _id: IdSpec,
   __v: Joi.number(),
 }).label("UserDetailsPlus");
@@ -43,13 +44,13 @@ export const PlacemarkSpecPlus = PlacemarkSpec.keys( {
     __v: Joi.number()
 }).label("PlacemarkPlus")
 
-export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlaylistArray");
+export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
 
 
 // Category
 export const CategorySpec = Joi.object()
   .keys({
-    name: Joi.string().example("landscapes").required(),
+    name: Joi.string().example("landscape").required(),
     userid: IdSpec,
     placemarks: PlacemarkArraySpec
 }).label("Category");
