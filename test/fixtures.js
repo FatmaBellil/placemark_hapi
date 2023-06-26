@@ -1,4 +1,5 @@
-
+export const serviceUrl = "http://localhost:3000";
+// soon // export const serviceUrl = "https://placemark-1.onrender.com/"
 
 export const maggie = {
     firstName: "Maggie",
@@ -6,6 +7,10 @@ export const maggie = {
     email: "maggie@simpson.com",
     password: "secret",
     role: "basic"
+};
+export const maggieCredentials = {
+  email: "maggie@simpson.com",
+  password: "secret"
 };
 
 export const testUsers = [
@@ -40,6 +45,11 @@ export const testUsers = [
     role: "admin"
   }
 
+  export const adminCredentials = {
+    email: "jerry@admin.com",
+    password: "secret"
+  };
+
 
   export const landscape = {
     name: "landscape"
@@ -61,7 +71,7 @@ export const testUsers = [
 
   export const regensburg = {
     name: "Regensburg",
-    atitude:"49.0139",
+    latitude:"49.0139",
     longitude:"12.1016",
     description:"Regensburg is a german city"
 

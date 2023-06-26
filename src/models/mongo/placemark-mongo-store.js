@@ -41,15 +41,18 @@ export const placemarkMongoStore = {
         }
     },
 
-    async updatePlacemark(placemark, newPlacemark) {
-        placemark.name = newPlacemark.name;
-        placemark.description = newPlacemark.description;
-        placemark.latitude = newPlacemark.latitude;
-        placemark.longitude = newPlacemark.longitude;
-        placemark.img = newPlacemark.img;
+    async updatePlacemark(updatedPlacemark) {
+        const placemark = await Placemark.findOne({_id : updatedPlacemark._id});
+        placemark.name = updatedPlacemark.name;
+        placemark.description = updatedPlacemark.description;
+        placemark.latitude = updatedPlacemark.latitude;
+        placemark.longitude = updatedPlacemark.longitude;
+        placemark.img = updatedPlacemark.img;
         await placemark.save();
-    },
 
+    },
+    
+    
     async deleteAllPlacemarks() {
         await Placemark.deleteMany({});
     }

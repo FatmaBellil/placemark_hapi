@@ -27,12 +27,20 @@ export const webRoutes = [
 
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
   { method: "POST", path: "/updateplacemark/{id}", config: placemarkController.updatePlacemark },
+  
+  // imgage
+  { method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
+  { method: "GET", path: "/placemark/{id}/deleteimage/{img}", config: placemarkController.deleteImage },
 
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
   
 
   {method: "GET", path: "/category/{id}", config: categoryController.index},
   {method: "GET", path: "/category/{id}/deleteplacemark/{placemarkid}", config: categoryController.deletePlacemark},
   {method: "POST", path: "/category/{id}/addplacemark", config: categoryController.addPlacemark},
+
+  
+
   
 
 

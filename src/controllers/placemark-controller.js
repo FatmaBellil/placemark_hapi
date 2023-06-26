@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 
 export const placemarkController = {
@@ -30,20 +31,58 @@ export const placemarkController = {
         },
         handler: async function(request, h) {
             const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-            const newPlacemark = {
-                name: request.payload.name,
-                description: request.payload.description,
-                latitude: request.payload.latitude,
-                longitude: request.payload.longitude
-            }
+            placemark.name = request.payload.name;
+            placemark.description = request.payload.description;
+            placemark.latitude = request.payload.latitude;
+            placemark.longitude = request.payload.longitude;
+            
 
-            await db.placemarkStore.updatePlacemark(placemark, newPlacemark);
+            await db.placemarkStore.updatePlacemark(placemark);
             return h.redirect(`/placemark/${request.params.id}`);
 
 
         }
 
-    }
+    },
+// upload and delete image
+
+    uploadImage: {
+        handler: async function (request, h) {
+            const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+          try {
+            const file = request.payload.imagefile;
+            if (Object.keys(file).length > 0) {
+              const url = await imageStore.uploadImage(request.payload.imagefile);
+              placemark.img = url;
+              await db.placemarkStore.updatePlacemark(placemark);
+            }
+            return h.redirect(`/placemark/${placemark._id}`);
+          } catch (err) {
+            console.log(err);
+            return h.redirect(`/placemark/${placemark._id}`);
+          }
+        },
+        payload: {
+          multipart: true,
+          output: "data",
+          maxBytes: 209715200,
+          parse: true,
+        },
+      },
+    
+      deleteImage: {
+        handler: async function(request, h) {
+            const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+          try {
+            await imageStore.deleteImage(request.params.img);
+            await db.placemarkStore.updatePlacemark(placemark);
+            return h.redirect(`/placemark/${placemark._id}`);
+            
+          } catch (error) {
+            console.log(error);
+            return h.redirect(`/placemark/${placemark._id}`);
+          }
+        }
+      },
 }
 
-// upload and delete image

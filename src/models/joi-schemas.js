@@ -1,9 +1,6 @@
 import Joi from "joi";
 
-
-
 export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).description("a valid ID");
-
 
 // User
 
@@ -17,10 +14,10 @@ export const UserCredentialsSpec = Joi.object()
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
+  role: Joi.string().example("basic"),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
-  role: Joi.string.example("basic").optional(),
   _id: IdSpec,
   __v: Joi.number(),
 }).label("UserDetailsPlus");
@@ -35,6 +32,7 @@ export const PlacemarkSpec = Joi.object()
         description: Joi.string().example("regensburg is a german city").required(),
         latitude :Joi.number().allow("").example("49.0139").optional(),
         longitude: Joi.number().allow("").example("12.1016").optional(),
+        img: Joi.string().example("http://res.cloudinary.com/dtkcoay15/image/upload/v1687773695/qbnldqldkws5p3dgtiyb.jpg"),
         categoryid: IdSpec
     })
     .label("Placemark");

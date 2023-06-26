@@ -9,7 +9,7 @@
     "start": "node src/server.js ",
     "dev": "./node_modules/.bin/nodemon src/server.js  --ignore 'src/models/json/*.json'",
     "test": "./node_modules/mocha/bin/_mocha --timeout 10000 --ui tdd test/**/*.js -exit",
-    "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
+    "testmodels": "./node_modules/mocha/bin/_mocha --timeout 10000 --ui tdd test/models/**/*.js -exit",
     "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit",
     "lint": "./node_modules/.bin/eslint . --ext .js"
   },
@@ -40,7 +40,9 @@
     "@hapi/hapi": "^21.3.2",
     "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.2",
+    "cloudinary": "^1.37.2",
     "dotenv": "^16.1.4",
+    "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
     "hapi-auth-jwt2": "^10.4.0",
     "hapi-swagger": "^17.0.0",
