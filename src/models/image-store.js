@@ -18,16 +18,6 @@ export const imageStore = {
     return result.resources;
   },
 
-  // Extract public ID from Cloudinary URL
-  getPublicIdFromUrl:  (imageUrl) => {
-    try {
-      const { publicId } = cloudinary.v2.url(imageUrl, { secure: true });
-      return publicId;
-    } catch (error) {
-      console.error("Error extracting public ID:", error);
-      throw error;
-    }
-  },
 
   uploadImage: async function(imagefile) {
     writeFileSync("./public/temp.img", imagefile);
@@ -36,11 +26,17 @@ export const imageStore = {
   },
 
   deleteImage: async function(img) {
-    // const publicId = this.getPublicIdFromUrl(img);
-    await cloudinary.v2.uploader.destroy(img, (error, result) => {
+    const publicId = this.getPublicIdFromUrl(img);
+    await cloudinary.v2.uploader.destroy(publicId, (error, result) => {
       console.log(error);
-    })
+    });
+  },
+  
+  getPublicIdFromUrl: function(imgUrl) {
+    const publicId = imgUrl.split("/v")[1].split("/")[1];
+    return publicId;
   }
+  
 
   
 };
