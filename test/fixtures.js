@@ -1,5 +1,5 @@
-export const serviceUrl = "http://localhost:3000";
-// soon // export const serviceUrl = "https://placemark-1.onrender.com/"
+ export const serviceUrl = "http://localhost:3000";
+// export const serviceUrl = "https://placemark-1uvc.onrender.com"
 
 export const maggie = {
     firstName: "Maggie",

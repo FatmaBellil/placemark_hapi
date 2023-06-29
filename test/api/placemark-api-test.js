@@ -49,14 +49,14 @@ suite("Placemark API tests", () => {
         await placemarkService.createPlacemark(landscapeCategory._id, testPlacemarks[i]);
     }
 
-    let returnedPlacemarks = await placemarkService.getAllPlacemarks();
+    let returnedPlacemarks = await placemarkService.getAllPlacemarks(landscapeCategory._id);
     assert.equal(returnedPlacemarks.length, testPlacemarks.length);
 
-    for (let i = 0; i < returnedPlacemarks.length.length; i+=1) {
+    for (let i = 0; i < returnedPlacemarks.length; i+=1) {
         await placemarkService.deletePlacemark(returnedPlacemarks[i]._id);
     }
 
-    returnedPlacemarks = await placemarkService.getAllPlacemarks();
+    returnedPlacemarks = await placemarkService.getAllPlacemarks(landscapeCategory._id);
     assert.equal(returnedPlacemarks.length, 0);
 
   });
@@ -66,10 +66,10 @@ suite("Placemark API tests", () => {
       // eslint-disable-next-line no-await-in-loop
       await placemarkService.createPlacemark(landscapeCategory._id, testPlacemarks[i]);
     }
-    let returnedPlacemarks = await placemarkService.getAllPlacemarks();
+    let returnedPlacemarks = await placemarkService.getAllPlacemarks(landscapeCategory._id);
     assert.equal(returnedPlacemarks.length, testPlacemarks.length);
     await placemarkService.deleteAllPlacemarks();
-    returnedPlacemarks = await placemarkService.getAllPlacemarks();
+    returnedPlacemarks = await placemarkService.getAllPlacemarks(landscapeCategory._id);
     assert.equal(returnedPlacemarks.length, 0);
   });
 

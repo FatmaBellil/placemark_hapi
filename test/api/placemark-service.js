@@ -51,8 +51,8 @@ export const placemarkService = {
     return res.data;
   },
 
-  async getAllPlacemarks() {
-    const res = await axios.get(`${this.placemarkUrl}/api/placemarks`);
+  async getAllPlacemarks(categoryid) {
+    const res = await axios.get(`${this.placemarkUrl}/api/categories/${categoryid}/placemarks`);
     return res.data;
   },
 

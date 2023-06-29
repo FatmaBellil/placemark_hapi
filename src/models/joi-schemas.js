@@ -30,8 +30,8 @@ export const PlacemarkSpec = Joi.object()
     .keys({
         name: Joi.string().example("regensburg").required(),
         description: Joi.string().example("regensburg is a german city").required(),
-        latitude :Joi.number().allow("").example("49.0139").optional(),
-        longitude: Joi.number().allow("").example("12.1016").optional(),
+        latitude :Joi.number().allow("").example("49.0139").required(),
+        longitude: Joi.number().allow("").example("12.1016").required(),
         img: Joi.string().example("http://res.cloudinary.com/dtkcoay15/image/upload/v1687773695/qbnldqldkws5p3dgtiyb.jpg"),
         categoryid: IdSpec
     })

@@ -13,7 +13,9 @@ export const categoryApi = {
       
         handler: async function (request, h) {
             try {
-                const categories = await db.categoryStore.getAllCategories();
+                const loggedInUser = request.auth.credentials;
+                const categories = await db.categoryStore.getUserCategories(loggedInUser._id);
+                // const categories = await db.categoryStore.getAllCategories();
                 return categories;
             } catch (err) {
                 return Boom.serverUnavailable("Database Error");
@@ -55,7 +57,11 @@ export const categoryApi = {
     
         handler: async function (request, h) {
             try {
-                const category = request.payload;
+                const loggedInUser = request.auth.credentials;
+                const category = {
+                    userid: loggedInUser._id,
+                    name: request.payload.name,
+                  };
                 const newCategory = await db.categoryStore.addCategory(category);
                 if (newCategory) {
                     return h.response(newCategory).code(201);
@@ -112,4 +118,5 @@ export const categoryApi = {
         description: "Delete all categoryApi",
         notes: "All categoryApi removed from Placemark",
     },
+
 }

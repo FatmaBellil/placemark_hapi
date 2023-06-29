@@ -8,6 +8,9 @@ import jwt from "hapi-auth-jwt2";
 import Inert from "@hapi/inert";
 import HapiSwagger from "hapi-swagger";
 import dotenv from "dotenv";
+import cors from "cors";
+import express from "express"
+
 
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
@@ -41,10 +44,18 @@ const swaggerOptions = {
   
 };
 
+
 async function init() {
   
   const server = Hapi.server({
     port: process.env.PORT || 3000,
+    routes: {
+      cors: {
+        origin: ["http://localhost:5173"], // Replace with your Svelte application's URL
+        credentials: true,
+      },
+    },
+    
   });
   
 

@@ -13,15 +13,15 @@ export const placemarkApi = {
 
     handler: async function (request, h) {
       try {
-        const placemarks = await db.placemarkStore.getAllPlacemarks();
+        const placemarks = await db.placemarkStore.getCategoryPlacemarks(request.params.id);
         return placemarks;
       } catch (err) {
         return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],
-    description: "Get all placemarkApi",
-    notes: "returns details of all placemarkApi",
+    description: "Get all placemarkApi of one Category",
+    notes: "returns details of all placemarkApi of one Category",
     response: { schema: PlacemarkArraySpec, failAction: validationError}, //  how to handle validation failures
   },
     
