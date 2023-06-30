@@ -51,8 +51,8 @@ async function init() {
     port: process.env.PORT || 3000,
     routes: {
       cors: {
-        origin: ["https://placemark10.netlify.app"], 
-       //  origin: ["http://localhost:5174"], 
+         origin: ["https://placemark10.netlify.app"], 
+        // origin: ["http://localhost:5174"], 
         credentials: true,
       },
     },
@@ -72,6 +72,9 @@ async function init() {
     },
     {
       plugin: cors,
+      options: {
+        methods: ["GET", "POST", "PUT", "DELETE"], 
+      },
     },
   ]);
 
@@ -125,3 +128,5 @@ process.on("unhandledRejection", (err) => {
 });
 
 init();
+
+
