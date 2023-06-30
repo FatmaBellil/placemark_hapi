@@ -24,6 +24,16 @@ export const UserSpecPlus = UserSpec.keys({
 
 export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
+// images of placemarks
+
+export const ImageSpec = Joi.object().keys({
+  url: Joi.string().example("https://res.cloudinary.com/dtkcoay15/image/upload/v1688036219/aalsgddml10jarbvq7ns.jpg").required(),
+}).label("Image");
+
+export const UploadImageSpec = Joi.object().keys({
+  image: Joi.any().required()
+}).label("ImageToUpload");
+
 
 // placemark
 export const PlacemarkSpec = Joi.object()
@@ -33,14 +43,14 @@ export const PlacemarkSpec = Joi.object()
         latitude :Joi.number().allow("").example("49.0139").required(),
         longitude: Joi.number().allow("").example("12.1016").required(),
         img: Joi.string().example("http://res.cloudinary.com/dtkcoay15/image/upload/v1687773695/qbnldqldkws5p3dgtiyb.jpg"),
-        categoryid: IdSpec
+        categoryid: IdSpec,
     })
     .label("Placemark");
 
 export const PlacemarkSpecPlus = PlacemarkSpec.keys( {
     _id: IdSpec,
     __v: Joi.number()
-}).label("PlacemarkPlus")
+}).label("PlacemarkPlus");
 
 export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
 
@@ -68,3 +78,8 @@ export const JwtAuth = Joi.object()
   token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
 })
 .label("JwtAuth");
+
+
+
+
+  

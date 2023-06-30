@@ -47,6 +47,7 @@
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
     "hapi-auth-jwt2": "^10.4.0",
+    "hapi-cors": "^1.0.3",
     "hapi-swagger": "^17.0.0",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",

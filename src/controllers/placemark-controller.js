@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { imageStore } from "../models/image-store.js";
@@ -69,7 +70,9 @@ export const placemarkController = {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       try {
-        await imageStore.deleteImage(request.params.img);
+        const img = request.params.img;
+        await imageStore.deleteImage(img.publicId);
+        placemark.img = null;
         await db.placemarkStore.updatePlacemark(placemark);
         return h.redirect(`/placemark/${placemark._id}`);
       } catch (error) {

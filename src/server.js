@@ -8,7 +8,7 @@ import jwt from "hapi-auth-jwt2";
 import Inert from "@hapi/inert";
 import HapiSwagger from "hapi-swagger";
 import dotenv from "dotenv";
-import cors from "cors";
+import cors from "hapi-cors"; // Add the hapi-cors plugin
 import express from "express"
 
 
@@ -51,7 +51,8 @@ async function init() {
     port: process.env.PORT || 3000,
     routes: {
       cors: {
-        origin: ["https://placemark10.netlify.app"], // Replace with your Svelte application's URL
+        // origin: ["https://placemark10.netlify.app"], // Replace with your Svelte application's URL
+        origin: ["http://localhost:5174"], // Replace with your Svelte application's URL
         credentials: true,
       },
     },
@@ -68,6 +69,9 @@ async function init() {
     {
       plugin: HapiSwagger,
       options: swaggerOptions,
+    },
+    {
+      plugin: cors,
     },
   ]);
 

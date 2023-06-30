@@ -26,19 +26,12 @@ export const imageStore = {
   },
 
   deleteImage: async function(img) {
-    const publicId = this.getPublicIdFromUrl(img);
-    await cloudinary.v2.uploader.destroy(publicId, (error, result) => {
-      console.log(error);
-    });
+    await cloudinary.v2.uploader.destroy(img, {});
   },
-  
-  getPublicIdFromUrl: function(imgUrl) {
-    const publicId = imgUrl.split("/v")[1].split("/")[1];
-    return publicId;
-  }
   
 
   
 };
+
 
 
