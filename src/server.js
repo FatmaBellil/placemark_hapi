@@ -51,7 +51,7 @@ async function init() {
     port: process.env.PORT || 3000,
     routes: {
       cors: {
-        origin: ["http://localhost:5173"], // Replace with your Svelte application's URL
+        origin: ["https://placemark10.netlify.app"], // Replace with your Svelte application's URL
         credentials: true,
       },
     },
