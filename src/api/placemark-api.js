@@ -160,7 +160,7 @@ export const placemarkApi = {
         await imageStore.deleteImage(request.params.img);
         placemark.img = null;
         await db.placemarkStore.updatePlacemark(placemark);
-        return h.response().code(200);
+        return h.response().code(204);
 
       } catch (err) {
         return Boom.serverUnavailable("Database Error");
