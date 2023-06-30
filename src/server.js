@@ -8,7 +8,7 @@ import jwt from "hapi-auth-jwt2";
 import Inert from "@hapi/inert";
 import HapiSwagger from "hapi-swagger";
 import dotenv from "dotenv";
-import cors from "hapi-cors"; // Add the hapi-cors plugin
+import cors from "hapi-cors"; 
 import express from "express"
 
 
@@ -49,12 +49,8 @@ async function init() {
   
   const server = Hapi.server({
     port: process.env.PORT || 3000,
-    routes: {
-      cors: {
-         origin: ["https://placemark10.netlify.app"], 
-        // origin: ["http://localhost:5174"], 
-        credentials: true,
-      },
+    "routes": {
+      cors:  true
     },
     
   });
