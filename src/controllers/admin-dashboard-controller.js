@@ -8,7 +8,7 @@ export const adminDashboardController = {
             const categories = await db.categoryStore.getAllCategories();
             const placemarks = await db.placemarkStore.getAllPlacemarks();
             const viewData = {
-            title: "add user error",
+            title: "admin Dashboard",
             users: users,
             categories: categories,
             placemarks: placemarks,
@@ -20,7 +20,7 @@ export const adminDashboardController = {
 
     deleteUser: {
         handler: async function(request, h) {
-            await db.userStore.deleteUserById(request.id);
+            await db.userStore.deleteUserById(request.params.id);
             return h.redirect("/admindashboard");
         }
     },
