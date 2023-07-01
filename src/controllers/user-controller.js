@@ -28,13 +28,11 @@ export const userController = {
         },
         handler: async function(request, h) {
             const user = await db.userStore.getUserById(request.params.id);
-            const newUser = {
-                firstName: request.payload.firstName,
-                lastName: request.payload.lastName,
-                email: request.payload.email,
-                password: request.payload.password
-            }
-            await db.userStore.updateUser(user, newUser);
+            user.firstName = request.payload.firstName;
+            user.lastName = request.payload.lastName;
+            user.email = request.payload.email;
+            user.password = request.payload.password;
+            await db.userStore.updateUser(user);
             return h.redirect(`/user/${request.params.id}`);
         }
     

@@ -35,9 +35,10 @@ export const userMongoStore = {
         }
     },
 
-    async updateUser(user, newUser) {
+    async updateUser(newUser) {
+        const user = await User.findOne({_id : newUser._id});
         user.firstName = newUser.firstName;
-        user.lasrName = newUser.lastName;
+        user.lastName = newUser.lastName;
         user.email = newUser.email;
         user.password = newUser.password;
         await user.save();
